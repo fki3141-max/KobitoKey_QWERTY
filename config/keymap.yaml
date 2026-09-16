@@ -1,0 +1,77 @@
+# KobitoKey キーマップ定義（人間が編集する入力フォーマット）
+#
+# このファイルを編集して以下を実行すると config/KobitoKey.keymap が再生成されます。
+#     python3 scripts/generate_keymap.py
+#
+# ── keys の書き方 ─────────────────────────────────────────────
+# 1行 = 1段（row）、半角スペース区切りで列（column）のキーを並べます。
+# 物理配置は 4行 x 10列（左5列 + 右5列）です。
+#
+#   _              : 何もしない (&trans)
+#   Q, N1, SEMI...  : 通常のキーコード (&kp Q / &kp N1 / &kp SEMI)
+#   LT2(SPACE)      : レイヤー2にタップホールド (&lt 2 SPACE)
+#   MT(LALT,SLASH)  : 左AltとSLASHのモッドタップ (&mt LALT SLASH)
+#   BT0 ... BT4     : Bluetoothプロファイル選択 (&bt BT_SEL 0 ... 4)
+#   BTCLR           : 現在のBluetoothプロファイルを解除 (&bt BT_CLR)
+#   BTCLRALL        : 全Bluetoothプロファイルを解除 (&bt BT_CLR_ALL)
+#   MB1, MB2, MB3   : マウスボタン (&mkp MB1 / MB2 / MB3)
+#   TO0 ... TO9     : レイヤーへ切り替え (&to 0 ... 9)
+#   &... で始まる    : 上記に無いバインディングを生で書きたいときのエスケープハッチ
+# ────────────────────────────────────────────────────────────
+
+layout:
+  rows: 4
+  columns: 10
+
+combos:
+  - name: combo_eisu
+    timeout_ms: 50
+    positions: [12, 13]
+    binding: LANG2
+
+  - name: combo_kana
+    timeout_ms: 50
+    positions: [16, 17]
+    binding: LANG1
+
+  - name: combo_esc
+    timeout_ms: 50
+    positions: [0, 1]
+    binding: ESC
+
+  - name: combo_tab
+    timeout_ms: 50
+    positions: [10, 11]
+    binding: TAB
+
+layers:
+  - name: default_layer
+    keys: |
+      Q      W     E     R            T      Y     U            I      O      P
+      A      S     D     F            G      H     J            K      L      SEMI
+      Z      X     C     V            B      N     M            COMMA  DOT    APOS
+      LSHFT  LALT  LCMD  LT2(SPACE)   LCTRL  BSPC  LT1(ENTER)   RSHFT  RSHFT  MT(LALT,SLASH)
+
+  - name: layer1
+    label: NUMBER
+    keys: |
+      N0     N1  N2  N3     _  MINUS  _      UP    _      _
+      EQUAL  N4  N5  N6     _  PLUS   LEFT   DOWN  RIGHT  _
+      _      N7  N8  N9     _  ASTRK  SLASH  LBKT  RBKT   _
+      _      _   _   LSHFT  _  _      _      _     _      _
+
+  - name: layer2
+    label: FUNCTION
+    keys: |
+      BT0    BT1  BT2  BT3  BT4       F1   F2   F3    F4    F5
+      _      _    _    _    BTCLR     F6   F7   F8    F9    F10
+      _      _    _    _    BTCLRALL  F11  F12  _     _     _
+      _      _    _    _    _         DEL  _    _     _     _
+
+  - name: layer3
+    label: MOUSE
+    keys: |
+      _      _     _     _     _    _  MB1  MB3  MB2  _
+      _      _     _     _     _    _  _    _    _    _
+      _      _     _     _     _    _  _    _    _    _
+      LSHFT  _     LCMD  LALT  TO0  _  _    _    TO0  RALT
