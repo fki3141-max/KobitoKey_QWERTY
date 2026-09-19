@@ -15,6 +15,7 @@ COMBO_L( rclick, LM3 LM4,    &mkp MB2,  MOUSE )            // D+F → 右クリ�
 COMBO( kana,    RM2 RM3,     &kp LANG1 )   // J+K → かな
 COMBO( esc,     LT1 LT2,     &kp ESC   )   // Q+W → Esc
 COMBO( tab,     LM1 LM2,     &kp TAB   )   // A+S → Tab
+COMBO_L( minus, RM4 RM5,     &kp MINUS, BASE )   // L+; → -（BASEのみ）
 
 /* ---- 書き方の例（使うときは // を外す） ----
 COMBO_T( caps,  LB1 LB2,     &caps_word,    40 )        // タイムアウト40ms
