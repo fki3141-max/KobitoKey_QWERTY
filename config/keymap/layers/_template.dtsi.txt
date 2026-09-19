@@ -1,0 +1,14 @@
+/*
+ * 新しいレイヤーのひな形
+ *   1. このファイルを layers/4_xxx.dtsi のようにコピー（拡張子は .dtsi）
+ *   2. ノード名と表示名を変更
+ *   3. KobitoKey.keymap の最後のレイヤー #include の後に追加
+ *   4. keymap/kobito.h に  #define XXX 4  を追加
+ */
+LAYER(layer_xxx, "XXX",
+//  ── 左手 ───────────────────────────────────────────────    ── 右手 ───────────────────────────────────────────
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+)
