@@ -17,13 +17,17 @@
     };
 
     macros {
-        /* "=xlookup(" を入力するマクロ */
+        /* 英数入力に切り替えてから "=xlookup(" を入力するマクロ
+           英数への切り替えが効かない場合は LANG2 を INT5（無変換）や
+           GRAVE（半角/全角）に変えて試す */
         m_xlookup: m_xlookup {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings = <&macro_tap
+            bindings = <&macro_tap &kp LANG2>
+                     , <&macro_wait_time 80>
+                     , <&macro_tap
                 &kp EQUAL &kp X &kp L &kp O &kp O &kp K &kp U &kp P &kp LPAR>;
         };
     };
