@@ -6,5 +6,5 @@ LAYER(layer3, "MOUSE",
     &trans     &trans  &trans     &trans    &trans        &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
     &trans     &trans  &trans     &mkp MB1  &trans        &trans  &trans    &trans    &trans    &trans
     &kp LCTRL  &trans  &trans     &trans    &trans        &trans  &trans    &trans    &trans    &trans
-    &kp LSHFT  &trans  &kp LCTRL  &kp LALT  &to BASE      &trans  &trans    &trans    &to BASE  &kp RALT
+    &kp LSHFT  &trans  &kp LGUI   &kp LALT  &kp LCTRL     &trans  &trans    &trans    &to BASE  &kp RALT
 )
