@@ -10,7 +10,8 @@
  */
 
 //     名前     キー位置     出力
-COMBO( eisu,    LM3 LM4,     &kp LANG2 )   // D+F → 英数
+COMBO_L( eisu,  LM3 LM4,     &kp LANG2, BASE NUM FUNC )   // D+F → 英数（MOUSE以外）
+COMBO_L( rclick, LM3 LM4,    &mkp MB2,  MOUSE )            // D+F → 右クリック（MOUSEのみ）
 COMBO( kana,    RM2 RM3,     &kp LANG1 )   // J+K → かな
 COMBO( esc,     LT1 LT2,     &kp ESC   )   // Q+W → Esc
 COMBO( tab,     LM1 LM2,     &kp TAB   )   // A+S → Tab
