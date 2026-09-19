@@ -1,0 +1,33 @@
+/*
+ * 独自ビヘイビア（マクロ・ホールドタップなど）
+ *   ここで定義したものはレイヤーやコンボから &名前 で使える。
+ *   不要なら空のままでOK。
+ */
+
+/* ---- 例: ホールドタップ（使うときはコメントを外す） ----
+/ {
+    behaviors {
+        hm: home_row_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+};
+   使い方: &hm LSHFT A
+*/
+
+/* ---- 例: マクロ ----
+/ {
+    macros {
+        m_arrow: m_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp MINUS &kp GT>;
+        };
+    };
+};
+   使い方: &m_arrow   （"->" を入力）
+*/
