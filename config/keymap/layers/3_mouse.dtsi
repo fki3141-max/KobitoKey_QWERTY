@@ -1,0 +1,10 @@
+/*
+ * レイヤー3: MOUSE（本体から読み取った内容）
+ */
+LAYER(layer3, "MOUSE",
+//  ── 左手 ─────────────────────────────────────────    ── 右手 ─────────────────────────────────────────
+    &trans     &trans  &trans     &trans    &trans        &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
+    &trans     &trans  &trans     &trans    &trans        &trans  &trans    &trans    &trans    &trans
+    &kp LCTRL  &trans  &trans     &trans    &trans        &trans  &trans    &trans    &trans    &trans
+    &kp LSHFT  &trans  &kp LCTRL  &kp LALT  &to BASE      &trans  &trans    &trans    &to BASE  &kp RALT
+)
