@@ -1,0 +1,22 @@
+/*
+ * コンボ設定
+ *   キー位置の名前は keymap/kobito.h の図を参照（数字で書いてもOK）。
+ *
+ *   COMBO  (名前, キー位置, バインディング)
+ *   COMBO_T(名前, キー位置, バインディング, タイムアウトms)
+ *   COMBO_L(名前, キー位置, バインディング, 有効にするレイヤー)
+ *
+ *   ※ 名前は他と重複させない。キー位置はスペース区切りで2個以上。
+ */
+
+//     名前     キー位置     出力
+COMBO( eisu,    LM3 LM4,     &kp LANG2 )   // D+F → 英数
+COMBO( kana,    RM2 RM3,     &kp LANG1 )   // J+K → かな
+COMBO( esc,     LT1 LT2,     &kp ESC   )   // Q+W → Esc
+COMBO( tab,     LM1 LM2,     &kp TAB   )   // A+S → Tab
+
+/* ---- 書き方の例（使うときは // を外す） ----
+COMBO_T( caps,  LB1 LB2,     &caps_word,    40 )        // タイムアウト40ms
+COMBO_L( minus, RT4 RT5,     &kp MINUS,     BASE NUM )  // BASE と NUM のみ
+COMBO(   del3,  RM2 RM3 RM4, &kp DEL )                  // 3キー同時押し
+*/
