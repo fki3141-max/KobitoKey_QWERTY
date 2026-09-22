@@ -21,6 +21,10 @@ COMBO( at,      LM1 LH4,     &kp LBKT  )   // A+Space → @（JIS）
 COMBO( bslh,    RT1 LH4,     &kp INT1  )   // Y+Space → \（JIS ろキー）
 COMBO( dllr,    LM2 LH4,     &kp LS(N4))   // S+Space → $（JIS）
 
+// マウスクリック（全レイヤー / 誤発動を避けるため判定30ms）
+COMBO_T( lclick, RT2 RT3,    &mkp MB1, 30 )   // U+I → 左クリック
+COMBO_T( rclick2, RT3 RT4,   &mkp MB2, 30 )   // I+O → 右クリック
+
 /* ---- 書き方の例（使うときは // を外す） ----
 COMBO_T( caps,  LB1 LB2,     &caps_word,    40 )        // タイムアウト40ms
 COMBO_L( minus, RT4 RT5,     &kp MINUS,     BASE NUM )  // BASE と NUM のみ
