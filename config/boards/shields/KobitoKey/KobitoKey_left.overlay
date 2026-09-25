@@ -52,8 +52,8 @@
         compatible = "zmk,input-processor-sensor-rotation";
         status = "okay";
         #input-processor-cells = <0>;
-        /* 左ボール（スクロール）の軸の傾き。元は -24、実機調整で 0 に */
-        rotation-angle = <0>;
+        /* 左ボール（スクロール）の軸の傾き。実測（上に転がすと約24°ずれ）から +25 に。※5°刻みで効く */
+        rotation-angle = <25>;
     };
 
     sensor_rotation_right: sensor-rotation-right {
