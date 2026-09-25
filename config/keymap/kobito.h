@@ -104,7 +104,7 @@
  *     指定したレイヤーでのみ有効（例: BASE NUM）。
  */
 #ifndef COMBO_TIMEOUT
-#define COMBO_TIMEOUT 50
+#define COMBO_TIMEOUT 60
 #endif
 
 #define COMBO_T(_name, _pos, _bind, _timeout) \
