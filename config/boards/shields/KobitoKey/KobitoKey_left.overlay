@@ -38,6 +38,7 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         cpi = <200>; /* センサー感度 */
+        force-awake; /* ZMKが動作中はセンサーを休止させない（反応切れ対策） */
 
 
         evt-type = <INPUT_EV_REL>;
@@ -69,7 +70,7 @@
 
     input-processors =
             <&sensor_rotation_left>,
-            <&zip_x_scaler 0 1>,
+            <&zip_x_scaler 1 15>, /* 横スクロールも有効（縦と同じ倍率） */
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
@@ -80,7 +81,7 @@
   /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
     compatible = "zmk,input-processor-temp-layer";
     #input-processor-cells = <2>;
-    require-prior-idle-ms = <350>; /* キー押下後、何msオートマウスレイヤに入らないようにするか、誤爆防止 */
+    require-prior-idle-ms = <200>; /* キー押下後、何msオートマウスレイヤに入らないようにするか、誤爆防止 */
   };
 };
 
@@ -89,6 +90,7 @@
 
     input-processors =
         <&sensor_rotation_right>,
+        <&zip_xy_scaler 6 5>, /* カーソル速度 1.2倍 */
         <&zip_temp_layer 3 3000>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押下後に滞留する時間 */
 };
 
