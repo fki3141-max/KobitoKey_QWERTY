@@ -73,8 +73,7 @@
             <&zip_x_scaler 1 15>, /* 横スクロールも有効（縦と同じ倍率） */
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
-            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>; /* 横スクロールは反転しない（実機で逆だったため X_INVERT を削除） */
     };
 
 / {
