@@ -11,7 +11,6 @@
 
 //     名前     キー位置     出力
 COMBO_L( eisu,  LM3 LM4,     &kp LANG2, BASE NUM FUNC )   // D+F → 英数（MOUSE以外）
-COMBO_L( rclick, LM3 LM4,    &mkp MB2,  MOUSE )            // D+F → 右クリック（MOUSEのみ）
 COMBO( kana,    RM2 RM3,     &kp LANG1 )   // J+K → かな
 COMBO( esc,     LT1 LT2,     &ht LS(ESC) ESC )   // Q+W → Esc（長押しで Shift+Esc）
 COMBO( tab,     LM1 LM2,     &kp TAB   )   // A+S → Tab
@@ -22,9 +21,8 @@ COMBO( bslh,    RT1 LH4,     &kp INT1  )   // Y+Space → \（JIS ろキー）
 COMBO( dllr,    LM2 LH4,     &kp LS(N4))   // S+Space → $（JIS）
 COMBO( slash2,  RB4 RB5,     &kp SLASH )   // .+: → /（位置28+29）
 
-// マウスクリック（全レイヤー）
-COMBO( lclick,  RT2 RT3,     &mkp MB1  )   // U+I → 左クリック
-COMBO( rclick2, RT3 RT4,     &mkp MB2  )   // I+O → 右クリック
+// マウスレイヤーのみ
+COMBO_L( rclick, LM4 RM2,    &mkp MB2,  MOUSE )   // 13+16（F+J の位置）→ 右クリック
 
 /* ---- 書き方の例（使うときは // を外す） ----
 COMBO_T( caps,  LB1 LB2,     &caps_word,    40 )        // タイムアウト40ms
