@@ -20,6 +20,7 @@ COMBO( del,     LH5 RH1,     &kp DEL   )   // 左親指端+BS → Del
 COMBO( at,      LM1 LH4,     &kp LBKT  )   // A+Space → @（JIS）
 COMBO( bslh,    RT1 LH4,     &kp INT1  )   // Y+Space → \（JIS ろキー）
 COMBO( dllr,    LM2 LH4,     &kp LS(N4))   // S+Space → $（JIS）
+COMBO( slash2,  RB4 RB5,     &kp SLASH )   // .+: → /（位置28+29）
 
 // マウスクリック（全レイヤー）
 COMBO( lclick,  RT2 RT3,     &mkp MB1  )   // U+I → 左クリック
