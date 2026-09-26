@@ -60,8 +60,8 @@
         compatible = "zmk,input-processor-sensor-rotation";
         #input-processor-cells = <0>;
         status = "okay";
-        /* 右ボール（カーソル）の軸の傾き。24（実効20°）で時計回りに約30°ずれていたため -10 に。※5°刻みで効く */
-        rotation-angle = <(-10)>;
+        /* 右ボール（カーソル）の軸の傾き。実測で 20°→約30°、-10→約14° 時計回りにずれていたため -25 に。※5°刻みで効く */
+        rotation-angle = <(-25)>;
     };
 };
 
