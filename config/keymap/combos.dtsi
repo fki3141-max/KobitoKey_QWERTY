@@ -11,10 +11,9 @@
 
 //     名前     キー位置     出力
 COMBO_L( eisu,  LM3 LM4,     &kp LANG2, BASE NUM FUNC )   // D+F → 英数（MOUSE以外）
-COMBO( kana,    RM2 RM3,     &kp LANG1 )   // J+K → かな
+COMBO( kana,    RM2 RM3,     &kp GRAVE )   // J+K → 半角/全角（JIS の 半角/全角 キー）
 COMBO( esc,     LT1 LT2,     &ht LS(ESC) ESC )   // Q+W → Esc（長押しで Shift+Esc）
 COMBO( tab,     LM1 LM2,     &kp TAB   )   // A+S → Tab
-COMBO_L( minus, RM4 RM5,     &kp MINUS, BASE )   // L+; → -（BASEのみ）
 COMBO( del,     LH5 RH1,     &kp DEL   )   // 左親指端+BS → Del
 COMBO( at,      LM1 LH4,     &kp LBKT  )   // A+Space → @（JIS）
 COMBO( bslh,    RT1 LH4,     &kp INT1  )   // Y+Space → \（JIS ろキー）
