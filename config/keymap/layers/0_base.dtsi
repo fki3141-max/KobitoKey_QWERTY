@@ -1,11 +1,12 @@
 /*
  * レイヤー0: default（本体から読み取った内容）
  *   37: 短押しで 変換（INT4）、長押しで Shift
+ *   19: 短押しで ;、長押しで -（&ht = 短押し優先。170ms 以上押すと -）
  */
 LAYER(default_layer, "default",
 //  ── 左手 ─────────────────────────────────────────    ── 右手 ─────────────────────────────────────────
     &kp Q      &kp W     &kp E     &kp R          &kp T          &kp Y     &kp U           &kp I      &kp O      &kp P
-    &kp A      &kp S     &kp D     &kp F          &kp G          &kp H     &kp J           &kp K      &kp L      &kp SEMI
+    &kp A      &kp S     &kp D     &kp F          &kp G          &kp H     &kp J           &kp K      &kp L      &ht MINUS SEMI
     &kp Z      &kp X     &kp C     &kp V          &kp B          &kp N     &kp M           &kp COMMA  &kp DOT    &kp APOS
     &kp LCTRL  &kp LALT  &kp LCMD  &lt NUM SPACE  &kp LCTRL      &kp BSPC  &lt FUNC ENTER  &mt RSHFT INT4  &kp RSHFT  &mt LALT SLASH
 )
