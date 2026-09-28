@@ -14,6 +14,19 @@
             tapping-term-ms = <170>;
             bindings = <&kp>, <&kp>;
         };
+
+        /* 誤爆しにくいホールドタップ（記号キー用）
+           ・250ms 以上押し続けたときだけ長押し側
+           ・直前のキーから 150ms 以内に押したら必ず短押し（タイピング中の誤爆防止）
+           使い方: &htl <長押し> <短押し> */
+        htl: hold_tap_keys_long {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     macros {
