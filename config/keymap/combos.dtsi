@@ -18,6 +18,9 @@ COMBO( del,     LH5 RH1,     &kp DEL   )   // 左親指端+BS → Del
 COMBO( at,      LM1 LH4,     &kp LBKT  )   // A+Space → @（JIS）
 COMBO( bslh,    RT1 LH4,     &kp INT1  )   // Y+Space → \（JIS ろキー）
 COMBO( dllr,    LM2 LH4,     &kp LS(N4))   // S+Space → $（JIS）
+COMBO( colon,   RB4 RB5,     &kp APOS  )   // .+/（位置28+29）→ :（JIS）
+COMBO( tabprev, LT5 LH4,     &kp LC(PG_UP) )   // T+Space（位置4+33）→ Ctrl+PageUp（前のタブ）
+COMBO( tabnext, LM5 LH4,     &kp LC(PG_DN) )   // G+Space（位置14+33）→ Ctrl+PageDown（次のタブ）
 
 // マウスレイヤーのみ
 COMBO_L( rclick, LM4 RM2,    &mkp MB2,  MOUSE )   // 13+16（F+J の位置）→ 右クリック
