@@ -1,6 +1,8 @@
 #include <zephyr/dt-bindings/pinctrl/nrf-pinctrl.h>
 #include "kobitokey.dtsi"
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <input/processors.dtsi>
+#include <input/processors/sensor_rotation.dtsi>
 
 /* 列オフセット */
 &default_transform { col-offset = <5>; };
@@ -33,7 +35,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        cpi = <1200>; /* カーソル速度。600 から 2 倍に（左側の 1.2 倍スケーラーと合わせて実質 2.4 倍） */
+        cpi = <1200>; /* カーソル速度。600 から 2 倍に（下の 1.2 倍スケーラーと合わせて実質 2.4 倍） */
         force-awake; /* ZMKが動作中はセンサーを休止させない（反応切れ対策） */
         
         evt-type = <INPUT_EV_REL>;
@@ -42,8 +44,61 @@
     };
 };
 
-&tb_right_split {
+/* 右は central（親）。両方のボールの処理をここで行う */
+/ {
+    sensor_rotation_left: sensor-rotation-left {
+        compatible = "zmk,input-processor-sensor-rotation";
+        status = "okay";
+        #input-processor-cells = <0>;
+        /* 左ボール（スクロール）の軸の傾き。実測で 0→約-20°、25→約+13° だったため +15 に。※5°刻みで効く */
+        rotation-angle = <15>;
+    };
+
+    sensor_rotation_right: sensor-rotation-right {
+        compatible = "zmk,input-processor-sensor-rotation";
+        #input-processor-cells = <0>;
+        status = "okay";
+        /* 右ボール（カーソル）の軸の傾き。実測: 20°→時計回り約30°、-10→時計回り約14°、-25→反時計回り約15° のため -15 に。※5°刻みで効く */
+        rotation-angle = <(-15)>;
+    };
+
+    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <200>; /* キー押下後、何msオートマウスレイヤに入らないようにするか、誤爆防止 */
+    };
+};
+
+/* 左ボール（スクロール）：左から split で届いた入力 */
+&tb_left_listener {
+    status = "okay";
+
+    input-processors =
+            <&sensor_rotation_left>,
+            <&zip_x_scaler 1 15>, /* 横スクロールも有効（縦と同じ倍率） */
+            <&zip_y_scaler 1 15>,
+            <&zip_xy_to_scroll_mapper>,
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>; /* 横スクロールは反転しない（実機で逆だったため X_INVERT を削除） */
+};
+
+/* 右ボール（カーソル）：右（このボード）に直結 */
+&tb_right_listener {
+    status = "okay";
     device = <&tb_right>;
 
-    input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
+    input-processors =
+        <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>, /* 以前は右（子）側でかけていた上下反転 */
+        <&sensor_rotation_right>,
+        <&zip_xy_scaler 6 5>, /* カーソル速度 1.2倍 */
+        <&zip_temp_layer 3 3000>; /* オートマウスレイヤーの指定とトラボ操作及びマウスボタン押下後に滞留する時間 */
+};
+
+&zip_temp_layer {
+    excluded-positions = <
+        12   /* 右クリックコンボ（12+13） */
+        13   /* 左クリック */
+        16   /* 右クリックコンボ（13+16） */
+        20   /* Shift */
+        34   /* Ctrl */
+    >;
 };
