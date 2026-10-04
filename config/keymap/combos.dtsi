@@ -23,7 +23,6 @@ COMBO( tabprev, LT5 LH4,     &kp LC(PG_UP) )   // T+Space（位置4+33）→ Ctr
 COMBO( tabnext, LM5 LH4,     &kp LC(PG_DN) )   // G+Space（位置14+33）→ Ctrl+PageDown（次のタブ）
 
 // マウスレイヤーのみ
-COMBO_L( rclick, LM4 RM2,    &mkp MB2,  MOUSE )   // 13+16（F+J の位置）→ 右クリック
 COMBO_L( rclick2, LM3 LM4,   &mkp MB2,  MOUSE )   // 12+13（D+F の位置）→ 右クリック
 
 /* ---- 書き方の例（使うときは // を外す） ----
