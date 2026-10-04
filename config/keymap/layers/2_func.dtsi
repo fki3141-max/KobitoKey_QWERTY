@@ -6,5 +6,5 @@ LAYER(layer2, "FUNCTION",
     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans     &kp LC(LS(SEMI))   &kp LC(Y)  &kp F7  &kp F8  &kp F9  &kp F12
     &kp LC(A)     &kp LC(S)     &kp LC(D)     &kp LC(F)  &kp LC(MINUS)      &kp LC(H)  &kp F4  &kp F5  &kp F6  &kp F11
     &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)  &m_xlookup         &trans     &kp F1  &kp F2  &kp F3  &kp F10
-    &trans        &trans        &trans        &ht LC(SPACE) LS(SPACE)  &trans  &kp DEL  &trans  &trans  &trans  &trans
+    &trans        &trans        &trans        &ht LC(SPACE) LS(SPACE)  &trans  &kp DEL  &key_repeat  &trans  &trans  &trans
 )
