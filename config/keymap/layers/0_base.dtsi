@@ -5,15 +5,16 @@
  *   &htl = 同上で 250ms。直前のキーから 150ms 以内なら必ず短押し（記号キー用）
  *    9: 短押しで p、長押しで ^（JIS の ^ は EQUAL）
  *   19: 短押しで -、長押しで ;
- *   20: 短押しで z、長押しで Shift
- *   29: 短押しで /、長押しで Alt（: は 28+29 のコンボ）
+ *   10: 短押しで a、長押しで Shift
+ *   20: 短押しで z、長押しで Ctrl
+ *   29: 短押しで /、長押しで Alt（: は 28+29 のコンボ）。長押し判定は &ht の 170ms
  *   右手の文字キーは長押しで、NUMBER の同じ位置の数字の Shift 側（JIS）が出る（&htl）
  *     U='(7)  I=((8)  O=)(9)  J=$(4)  K=%(5)  L=&(6)  M=!(1)  ,="(2)  .=#(3)   ※N(0) は Shift 側がないので対象外
  */
 LAYER(default_layer, "default",
 //  ── 左手 ─────────────────────────────────────────    ── 右手 ─────────────────────────────────────────
     &kp Q      &kp W     &kp E     &kp R          &kp T          &kp Y     &htl LS(N7) U   &htl LS(N8) I  &htl LS(N9) O  &htl EQUAL P
-    &kp A      &kp S     &kp D     &kp F          &kp G          &kp H     &htl LS(N4) J   &htl LS(N5) K  &htl LS(N6) L  &htl SEMI MINUS
-    &ht LSHFT Z &kp X     &kp C     &kp V          &kp B          &kp N     &htl LS(N1) M   &htl LS(N2) COMMA  &htl LS(N3) DOT  &htl LALT SLASH
+    &ht LSHFT A &kp S     &kp D     &kp F          &kp G          &kp H     &htl LS(N4) J   &htl LS(N5) K  &htl LS(N6) L  &htl SEMI MINUS
+    &ht LCTRL Z &kp X     &kp C     &kp V          &kp B          &kp N     &htl LS(N1) M   &htl LS(N2) COMMA  &htl LS(N3) DOT  &ht LALT SLASH
     &kp LCTRL  &kp LALT  &kp LCMD  &lt NUM SPACE  &kp LCTRL      &kp BSPC  &lt FUNC ENTER  &mt RSHFT INT4  &kp RSHFT  &mt LALT SLASH
 )
