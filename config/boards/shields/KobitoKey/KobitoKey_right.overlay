@@ -95,11 +95,11 @@
 
 &zip_temp_layer {
     excluded-positions = <
+        10   /* Shift */
         12   /* 右クリックコンボ（12+13） */
         13   /* 左クリック */
-        17   /* Ctrl+PageUp（前のタブ） */
+        16   /* Ctrl+PageUp（前のタブ） */
         18   /* Ctrl+PageDown（次のタブ） */
-        20   /* Shift */
         34   /* Ctrl */
     >;
 };
