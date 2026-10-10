@@ -78,6 +78,7 @@
 #define NUM   1
 #define FUNC  2
 #define MOUSE 3
+#define CURSOR 4
 
 /*
  * ■ LAYER(ノード名, "表示名", バインディング...)
