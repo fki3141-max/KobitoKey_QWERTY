@@ -33,6 +33,7 @@
 #include "keymap/layers/1_num.dtsi"       /* 1: NUM   */
 #include "keymap/layers/2_func.dtsi"      /* 2: FUNC  */
 #include "keymap/layers/3_mouse.dtsi"     /* 3: MOUSE */
+#include "keymap/layers/4_cursor.dtsi"    /* 4: CURSOR */
 
 /* ---- コンボ ---- */
 #include "keymap/combos.dtsi"
