@@ -21,9 +21,14 @@ COMBO( dllr,    LM2 LH4,     &kp LS(N4))   // S+Space → $（JIS）
 COMBO( colon,   RB4 RB5,     &kp APOS  )   // .+/（位置28+29）→ :（JIS）
 COMBO( tabprev, LT5 LH4,     &kp LC(PG_UP) )   // T+Space（位置4+33）→ Ctrl+PageUp（前のタブ）
 COMBO( tabnext, LM5 LH4,     &kp LC(PG_DN) )   // G+Space（位置14+33）→ Ctrl+PageDown（次のタブ）
+COMBO( altesc,  LM2 LM3,     &ht LA(LS(ESC)) LA(ESC) )   // S+D（位置11+12）→ Alt+Esc（長押しで Alt+Shift+Esc）
 
 // マウスレイヤーのみ
 COMBO_L( rclick2, LM3 LM4,   &mkp MB2,  MOUSE )   // 12+13（D+F の位置）→ 右クリック
+
+// CURSOR レイヤーのみ
+COMBO_L( cprev, LM4 RM2,     &kp LC(PG_UP), CURSOR )   // 13+16 → Ctrl+PageUp（前のタブ）
+COMBO_L( cnext, LM4 RM4,     &kp LC(PG_DN), CURSOR )   // 13+18 → Ctrl+PageDown（次のタブ）
 
 /* ---- 書き方の例（使うときは // を外す） ----
 COMBO_T( caps,  LB1 LB2,     &caps_word,    40 )        // タイムアウト40ms
