@@ -1,0 +1,15 @@
+/*
+ * レイヤー4: CURSOR（NUMBER の 36 を長押ししている間だけ有効）
+ *   基本は透過（▽）。
+ *    7=↑  16=←  17=↓  18=→
+ *   11=Shift  21=Shift  34=Ctrl
+ *   12=Ctrl+.  13=Ctrl+C  14=Ctrl+V
+ *   コンボ: 13+16 → Ctrl+PageUp、13+18 → Ctrl+PageDown（combos.dtsi）
+ */
+LAYER(layer4, "CURSOR",
+//  ── 左手 ─────────────────────────────────────────────────    ── 右手 ─────────────────────────────────────────
+    &trans     &trans     &trans       &trans     &trans         &trans     &trans     &kp UP     &trans     &trans
+    &trans     &kp LSHFT  &kp LC(DOT)  &kp LC(C)  &kp LC(V)      &trans     &kp LEFT   &kp DOWN   &kp RIGHT  &trans
+    &trans     &kp LSHFT  &trans       &trans     &trans         &trans     &trans     &trans     &trans     &trans
+    &trans     &trans     &trans       &trans     &kp LCTRL      &trans     &trans     &trans     &trans     &trans
+)
